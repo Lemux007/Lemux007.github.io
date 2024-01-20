@@ -23,9 +23,40 @@
             opacity: 1 !important;
             transform: translate(0) scale(1) !important;
         }
+        .language-button {
+            background-color: yellow;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+        }
+
+        /* Estilo específico para el contenido en español */
+        section[lang="es"] {
+            display: none;
+        }
+
+        /* Estilo para ocultar el contenido en inglés cuando está en español */
+        section[lang="es"] + section[lang="en-US"] {
+            display: none;
+        }
+    </style>
+
+    <script>
+        function toggleLanguage() {
+            
+            var englishSection = document.querySelector('section[lang="en-US"]');
+            var spanishSection = document.querySelector('section[lang="es"]');
+
+           
+            englishSection.style.display = (englishSection.style.display === 'none') ? 'block' : 'none';
+            spanishSection.style.display = (spanishSection.style.display === 'none') ? 'block' : 'none';
+        }
+    </script>
       </style>
     </noscript>
   </head>
+  <button class="language-button" onclick="toggleLanguage()">Cambiar Idioma</button>
+    <section lang="en-US">
   <body id="top">
     <header class="bg-light">
       <nav class="navbar navbar-expand-lg navbar-light bg-light" id="header-nav" role="navigation">
@@ -489,5 +520,6 @@
     <script src="./scripts/bootstrap.bundle.min.js?ver=1.2.0"></script>
     <script src="./scripts/aos.min.js?ver=1.2.0"></script>
     <script src="./scripts/main.js?ver=1.2.0"></script>
+    </section>
   </body>
 </html>
