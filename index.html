@@ -44,13 +44,14 @@
     <script>
         function toggleLanguage() {
             
-            var englishSection = document.querySelector('section[lang="en-US"]');
-            var spanishSection = document.querySelector('section[lang="es"]');
-
-           
-            englishSection.style.display = (englishSection.style.display === 'none') ? 'block' : 'none';
-            spanishSection.style.display = (spanishSection.style.display === 'none') ? 'block' : 'none';
-        }
+            // Select all elements with the attribute lang
+        var languageSections = document.querySelectorAll('[lang]');
+        
+        // Toggle the display property for each language section
+        languageSections.forEach(function(section) {
+            section.style.display = (section.style.display === 'none' || section.style.display === '') ? 'block' : 'none';
+        });
+    }
     </script>
       </style>
     </noscript>
